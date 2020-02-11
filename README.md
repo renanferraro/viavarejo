@@ -3,7 +3,7 @@ Sistema de calculo de condições de pagamento
 https://github.com/viavarejo/backend-test
 
 # Passo a passo
-git clone https://github.com/renanferraro/viavarejo
+git clone https://github.com/renanferraro/viavarejo.git
 
 mvn clean install
 
