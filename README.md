@@ -5,6 +5,10 @@ https://github.com/viavarejo/backend-test
 # Passo a passo
 git clone https://github.com/renanferraro/viavarejo.git
 
+git checkout develop
+
+git pull
+
 mvn clean install
 
 mvn spring-boot:run
