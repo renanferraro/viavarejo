@@ -12,7 +12,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import br.com.viavarejo.calculoparcelas.dto.CondicaoPagamentoDTO;
 import br.com.viavarejo.calculoparcelas.dto.ProdutoDTO;
 import br.com.viavarejo.calculoparcelas.dto.RequestConsultarCondicaoPagamento;
-import br.com.viavarejo.calculoparcelas.dto.ResponseConsultarCondicaoPagamento;
+import br.com.viavarejo.calculoparcelas.dto.ResponseParcela;
 
 @SpringBootTest
 public class CalculaParcelasBusinessTest {
@@ -26,9 +26,9 @@ public class CalculaParcelasBusinessTest {
 		RequestConsultarCondicaoPagamento request = new RequestConsultarCondicaoPagamento();
 		request.setCondicaoPagamento(new CondicaoPagamentoDTO(BigDecimal.ZERO, 1));
 		request.setProduto(new ProdutoDTO(1, "Geladeira", new BigDecimal(1000)));
-		ResponseConsultarCondicaoPagamento response = business.calcularParcelas(request);
+		ResponseParcela[] response = business.calcularParcelas(request);
 		System.out.println("Response 1: " + response.toString());
-		assertTrue(response.getParcelas().length == request.getCondicaoPagamento().getQtdeParcelas());
+		assertTrue(response.length == request.getCondicaoPagamento().getQtdeParcelas());
 	}
 
 	@DisplayName("Test CalculaParcelasBusinessTest:calcularParcelaCondicao2")
@@ -37,9 +37,9 @@ public class CalculaParcelasBusinessTest {
 		RequestConsultarCondicaoPagamento request = new RequestConsultarCondicaoPagamento();
 		request.setCondicaoPagamento(new CondicaoPagamentoDTO(new BigDecimal(100), 5));
 		request.setProduto(new ProdutoDTO(1, "Geladeira", new BigDecimal(1000)));
-		ResponseConsultarCondicaoPagamento response = business.calcularParcelas(request);
+		ResponseParcela[] response = business.calcularParcelas(request);
 		System.out.println("Response 2: " + response.toString());
-		assertTrue(response.getParcelas().length == request.getCondicaoPagamento().getQtdeParcelas());
+		assertTrue(response.length == request.getCondicaoPagamento().getQtdeParcelas());
 	}
 	
 	
@@ -49,9 +49,9 @@ public class CalculaParcelasBusinessTest {
 		RequestConsultarCondicaoPagamento request = new RequestConsultarCondicaoPagamento();
 		request.setCondicaoPagamento(new CondicaoPagamentoDTO(BigDecimal.ZERO, 6));
 		request.setProduto(new ProdutoDTO(1, "Geladeira", new BigDecimal(1000)));
-		ResponseConsultarCondicaoPagamento response = business.calcularParcelas(request);
+		ResponseParcela[] response = business.calcularParcelas(request);
 		System.out.println("Response 3: " + response.toString());
-		assertTrue(response.getParcelas().length == request.getCondicaoPagamento().getQtdeParcelas());
+		assertTrue(response.length == request.getCondicaoPagamento().getQtdeParcelas());
 	}
 	
 	@DisplayName("Test CalculaParcelasBusinessTest:calcularParcelaCondicao4")
@@ -60,8 +60,8 @@ public class CalculaParcelasBusinessTest {
 		RequestConsultarCondicaoPagamento request = new RequestConsultarCondicaoPagamento();
 		request.setCondicaoPagamento(new CondicaoPagamentoDTO(BigDecimal.ZERO, 7));
 		request.setProduto(new ProdutoDTO(1, "Geladeira", new BigDecimal(1000)));
-		ResponseConsultarCondicaoPagamento response = business.calcularParcelas(request);
+		ResponseParcela[] response = business.calcularParcelas(request);
 		System.out.println("Response 4: " + response.toString());
-		assertTrue(response.getParcelas().length == request.getCondicaoPagamento().getQtdeParcelas());
+		assertTrue(response.length == request.getCondicaoPagamento().getQtdeParcelas());
 	}
 }

@@ -2,16 +2,16 @@ package br.com.viavarejo.calculoparcelas.dto;
 
 import java.math.BigDecimal;
 
-public class ParcelaDTO {
+public class ResponseParcela {
 
 	private int numeroParcela;
 	private BigDecimal valor;
 	private double taxaJurosAoMes;
 	
-	public ParcelaDTO() {
+	public ResponseParcela() {
 	}
 	
-	public ParcelaDTO(int numeroParcela, BigDecimal valor, double taxaJurosAoMes) {
+	public ResponseParcela(int numeroParcela, BigDecimal valor, double taxaJurosAoMes) {
 		super();
 		this.numeroParcela = numeroParcela;
 		this.valor = valor;

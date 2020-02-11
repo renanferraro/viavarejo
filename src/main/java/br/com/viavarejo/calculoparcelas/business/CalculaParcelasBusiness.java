@@ -5,9 +5,8 @@ import org.springframework.stereotype.Service;
 
 import br.com.viavarejo.calculoparcelas.api.selic.ApiConsultaSelic;
 import br.com.viavarejo.calculoparcelas.api.selic.dto.SelicResponse;
-import br.com.viavarejo.calculoparcelas.dto.ParcelaDTO;
+import br.com.viavarejo.calculoparcelas.dto.ResponseParcela;
 import br.com.viavarejo.calculoparcelas.dto.RequestConsultarCondicaoPagamento;
-import br.com.viavarejo.calculoparcelas.dto.ResponseConsultarCondicaoPagamento;
 import br.com.viavarejo.calculoparcelas.service.CalulaParcelasService;
 
 @Service
@@ -19,11 +18,11 @@ public class CalculaParcelasBusiness {
 	@Autowired
 	private CalulaParcelasService service;
 	
-	public ResponseConsultarCondicaoPagamento calcularParcelas(final RequestConsultarCondicaoPagamento request) {
+	public ResponseParcela[] calcularParcelas(final RequestConsultarCondicaoPagamento request) {
 		final SelicResponse selicResponse = apiConsultaSelic.obterUltimoValorSelic();
-		final ParcelaDTO[] parcelaDTOs = service.calcularParcelas(selicResponse.getValor(), request);
+		final ResponseParcela[] parcelas = service.calcularParcelas(selicResponse.getValor(), request);
 		
-		return new ResponseConsultarCondicaoPagamento(parcelaDTOs);
+		return parcelas;
 	}
 	
 }
